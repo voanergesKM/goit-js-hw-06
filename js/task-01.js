@@ -15,3 +15,14 @@ console.log(message);
 console.log(animalsMessage);
 console.log(productsMessage);
 console.log(technologiesMessage);
+
+// ----------------------Варіант №2
+
+// const animalTech = catList[0].firstElementChild.textContent;
+// const productsTech = catList[1].firstElementChild.textContent;
+// const technologiesTech = catList[2].firstElementChild.textContent;
+
+// const message = `Number of categories: ${catList.length}`;
+// const animalsMessage = `Category: ${animalTech} \nElements: ${animals.length}`;
+// const productsMessage = `Category: ${productsTech} \nElements: ${products.length}`;
+// const technologiesMessage = `Category: ${technologiesTech} \nElements: ${technologies.length}`;
