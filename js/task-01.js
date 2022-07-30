@@ -2,7 +2,7 @@ const cats = document.querySelector('#categories');
 const catList = cats.querySelectorAll('.item');
 const catNames = cats.querySelectorAll('h2');
 
-const animals = catList[0].querySelectorAll('li');
+const animals = catList[0].querySelectorAll('li'); // catList[0].lastElementChild; але тоді отримуємо <ul></ul> і потрібно ще раз рити в глиб :)
 const products = catList[1].querySelectorAll('li');
 const technologies = catList[2].querySelectorAll('li');
 
@@ -26,3 +26,7 @@ console.log(technologiesMessage);
 // const animalsMessage = `Category: ${animalTech} \nElements: ${animals.length}`;
 // const productsMessage = `Category: ${productsTech} \nElements: ${products.length}`;
 // const technologiesMessage = `Category: ${technologiesTech} \nElements: ${technologies.length}`;
+
+// console.log('animals', animals);
+// const anim = catList[0].lastElementChild;
+// console.log('anim', anim);
