@@ -39,3 +39,10 @@ button {
 .galery__image {
   display: block;
 }
+
+#boxes {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
