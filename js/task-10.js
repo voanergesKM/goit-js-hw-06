@@ -6,27 +6,34 @@ const boxesElements = document.querySelector('#boxes');
 const amountEl = document.querySelector('#controls input');
 const createBtn = document.querySelector('[data-create]');
 const clearBtn = document.querySelector('[data-destroy]');
-const markupTable = [];
+let markupTable = [];
 
 createBtn.addEventListener('click', createBoxes);
 clearBtn.addEventListener('click', destroyBoxes);
 
-amountEl.addEventListener('input', e => {
-  e.currentTarget.value;
-});
+function createMarkup() {
+  let markupEl = '';
 
-function createBoxes() {
   for (let i = 1; i <= amountEl.value; i += 1) {
-    const markupEl = `<div style="background-color: ${getRandomHexColor()}; width: ${
+    markupEl += `<div style="background-color: ${getRandomHexColor()}; width: ${
       30 + i * 10
     }px; height: ${30 + i * 10}px"></div>`;
-    markupTable.push(markupEl);
   }
 
-  amountEl.value = 0;
+  markupTable.push(markupEl);
+
   boxesElements.innerHTML = markupTable.join('');
+}
+
+function createBoxes() {
+  createMarkup();
+
+  amountEl.value = 0;
 }
 
 function destroyBoxes() {
   boxesElements.innerHTML = '';
+  amountEl.value = 0;
+
+  markupTable = [];
 }
