@@ -6,41 +6,10 @@ const boxesElements = document.querySelector('#boxes');
 const amountEl = document.querySelector('#controls input');
 const createBtn = document.querySelector('[data-create]');
 const clearBtn = document.querySelector('[data-destroy]');
-let markupTable = [];
-
-console.dir(boxesElements);
+let markupEl = '';
 
 createBtn.addEventListener('click', createBoxes);
 clearBtn.addEventListener('click', destroyBoxes);
-
-function createMarkup() {
-  let markupEl = '';
-
-  if (!boxesElements.childElementCount) {
-    for (let i = 1; i <= amountEl.value; i += 1) {
-      markupEl += `<div style="background-color: ${getRandomHexColor()}; width: ${
-        20 + i * 10
-      }px; height: ${20 + i * 10}px"></div>`;
-    }
-
-    markupTable.push(markupEl);
-
-    boxesElements.innerHTML = markupTable.join('');
-  } else {
-    markupTable = [];
-    for (let i = 1; i <= amountEl.value; i += 1) {
-      markupEl += `<div style="background-color: ${getRandomHexColor()}; width: ${
-        Number.parseInt(boxesElements.lastElementChild.style.width) + i * 10
-      }px; height: ${
-        Number.parseInt(boxesElements.lastElementChild.style.height) + i * 10
-      }px"></div>`;
-    }
-
-    markupTable.push(markupEl);
-
-    boxesElements.insertAdjacentHTML('beforeend', markupTable);
-  }
-}
 
 function createBoxes() {
   createMarkup();
@@ -52,5 +21,29 @@ function destroyBoxes() {
   boxesElements.innerHTML = '';
   amountEl.value = 0;
 
-  markupTable = [];
+  markupEl = '';
+}
+
+function createMarkup() {
+  let markupEl = '';
+
+  if (!boxesElements.childElementCount) {
+    for (let i = 1; i <= amountEl.value; i += 1) {
+      markupEl += `<div style="background-color: ${getRandomHexColor()}; width: ${
+        20 + i * 10
+      }px; height: ${20 + i * 10}px"></div>`;
+    }
+
+    boxesElements.insertAdjacentHTML('beforeend', markupEl);
+  } else {
+    for (let i = 1; i <= amountEl.value; i += 1) {
+      markupEl += `<div style="background-color: ${getRandomHexColor()}; width: ${
+        Number.parseInt(boxesElements.lastElementChild.style.width) + i * 10
+      }px; height: ${
+        Number.parseInt(boxesElements.lastElementChild.style.height) + i * 10
+      }px"></div>`;
+    }
+
+    boxesElements.insertAdjacentHTML('beforeend', markupEl);
+  }
 }
