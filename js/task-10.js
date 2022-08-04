@@ -21,11 +21,11 @@ function destroyBoxes() {
   boxesElements.innerHTML = '';
   amountEl.value = 0;
 
-  markupEl = '';
+  // markupEl = '';
 }
 
 function createMarkup() {
-  let markupEl = '';
+  markupEl = '';
 
   if (!boxesElements.childElementCount) {
     for (let i = 1; i <= amountEl.value; i += 1) {
